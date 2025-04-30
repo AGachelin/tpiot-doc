@@ -24,3 +24,31 @@ Cette architecture reflète un scénario typique dans les systèmes IoT modernes
 
 ## Recommandations
 Pour que tout fonctionne correctement, les 3 machines doivent être connectées au même réseau. Si c'est disponible sur votre ordinateur, il est plus simple de les connecter au partage de connexion de votre ordinateur afin de créer un réseau isolé.
+
+## Ajout de capteurs
+Dans ce TP, chaque donnée (humidité et température) a son propre topic mqtt et kafka. Pour ajouter un capteur, il n'est pas nécessaire de créer les topics MQTT et Kafka car leur création est automatique. Cependant, il est nécessaire de paramétrer les interfaces qui connectent MQTT, Kafka et la base de données (MQTT-Proxy et Connect).
+1. Pour le Proxy MQTT, il faut modifier ou ajouter des expression regex qui permettent de faire correspondre les topics Kafka et MQTT. Par exemple pour la température, l'expression est `temperature:.*temperature[^_]*`. Dans ce cas, tous les messages dans des topics correspondant avec l'expression `.*temperature[^_]*` seront envoyés dans le topic `temperature`. **Il est Impératif que le nom du topic soit au format JSON** 
+2. Pour le connecteur vers la base de données, afficher le site `http://localhost:9021/clusters`, cliquer sur `controlcenter.cluster`, puis sur `Connect` dans la barre latérale. Cliquer sur le cluster `connect-default`, puis sur le connecteur `JdbcSinkConnectorConnector_0`, enfin dans l'onglet `Settings` modifier les topics à envoyer vers la base de données. Il est impératif que les messages envoyés soit de la forme :
+```
+{
+  "schema": {
+    "type": "struct",
+    "fields": [
+      {
+        "type": "float",
+        "optional": false,
+        "field": "temperature"
+      },
+      {
+        "type": "int64",
+        "optional": false,
+        "field": "timestamp"
+      }
+    ]
+  },
+  "payload": {
+    "temperature": 24.5,
+    "timestamp": 1745943209505
+  }
+}
+```
