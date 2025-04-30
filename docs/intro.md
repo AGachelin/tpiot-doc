@@ -39,11 +39,19 @@ Puis il faut ajouter la valeur par défaut de l'id pour celles que l'on vient de
 Il faut ajouter `DEFAULT nextval('temperature_id_seq')` à la fin de la définition de la colonne `id`.
 Par exemple, la ligne :
 ```
-CREATE TABLE temperature (id INT NOT NULL, temperature DOUBLE PRECISION NOT NULL, timestamp BIGINT NOT NULL, PRIMARY KEY(id))
+CREATE TABLE temperature (
+    id INT NOT NULL, 
+    temperature DOUBLE PRECISION NOT NULL, 
+    timestamp BIGINT NOT NULL, 
+    PRIMARY KEY(id))
 ```
 Devient:
 ```
-CREATE TABLE temperature (id INT NOT NULL DEFAULT nextval('temperature_id_seq'), temperature DOUBLE PRECISION NOT NULL, timestamp BIGINT NOT NULL, PRIMARY KEY(id))
+CREATE TABLE temperature (
+    id INT NOT NULL DEFAULT nextval('temperature_id_seq'), 
+    temperature DOUBLE PRECISION NOT NULL, 
+    timestamp BIGINT NOT NULL, 
+    PRIMARY KEY(id))
 ```
 ### Proxy MQTT
 Pour le Proxy MQTT, il faut modifier ou ajouter des expression regex qui permettent de faire correspondre les topics Kafka et MQTT. Par exemple pour la température, l'expression est `temperature:.*temperature[^_]*`. Dans ce cas, tous les messages dans des topics correspondant avec l'expression `.*temperature[^_]*` seront envoyés dans le topic `temperature`. **Il est Impératif que le nom du topic soit au format JSON** 
