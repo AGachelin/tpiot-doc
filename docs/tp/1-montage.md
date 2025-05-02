@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # Montage
 
 1. Placer le capteur DHT sur le breadboard.

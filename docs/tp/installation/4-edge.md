@@ -1,6 +1,7 @@
 ---
-sidebar_position: 4
+sidebar_position: 3
 ---
+
 
 # Edge
 1. Créer une copie du fichier `credentials.h` dans les dossier se terminant par `.ino`
