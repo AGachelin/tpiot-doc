@@ -115,4 +115,7 @@ timeFieldTemp["field"] = "timestamp";
 jsonDocTemp["payload"] = JsonObject();
 jsonDocTemp["payload"]["temperature"] = t;
 jsonDocTemp["payload"]["timestamp"] = timestamp;
+
+char jsonBufferTemp[400];
+serializeJson(jsonDocTemp, jsonBufferTemp);
 ```
