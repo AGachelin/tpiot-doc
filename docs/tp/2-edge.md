@@ -119,3 +119,5 @@ jsonDocTemp["payload"]["timestamp"] = timestamp;
 char jsonBufferTemp[400];
 serializeJson(jsonDocTemp, jsonBufferTemp);
 ```
+
+Le nom du topic MQTT doit aussi être un objet JSON (ex : `{"temperature":"string"}`)
