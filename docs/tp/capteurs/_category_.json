@@ -1,0 +1,9 @@
+{
+    "label": "Capteurs",
+    "position": 5,
+    "link": {
+      "type": "generated-index",
+      "description": "Utilisation des capteurs"
+    }
+  }
+  
