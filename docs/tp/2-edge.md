@@ -121,3 +121,5 @@ serializeJson(jsonDocTemp, jsonBufferTemp);
 ```
 
 Le nom du topic MQTT doit aussi être un objet JSON (ex : `{"temperature":"string"}`)
+
+Le stack cloud déployé contient un broker MQTT qui peut être utilisé pour tester l'envoi de messages.

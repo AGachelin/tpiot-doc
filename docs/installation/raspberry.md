@@ -25,19 +25,17 @@ https://learn.microsoft.com/fr-fr/windows-server/administration/openssh/openssh_
 
 La paire de clés en cryptographie asymétrique (comme SSH) fonctionne comme un cadenas et une clé : la clé publique est comme un cadenas que tout le monde peut fermer (chiffrer un message), mais seule la clé privée, gardée secrète, peut l’ouvrir (déchiffrer le message).
 
-Générer les clefs `ssh-keygen -t ecdsa`. En cas de problème, se référer à cette [page](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_keymanagement).
-Par défaut les clefs se trouvent dans le dossier `C:\Users\<Utilisateur>\.ssh` (`/home/<Utilisateur>/.ssh` sous Linux). Le fichier `id_ecdsa` contient la clef **privée** et le fichier `id_ecdsa.pub` contient la clef **publique**.
+Générer les clefs `ssh-keygen`. En cas de problème, se référer à cette [page](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_keymanagement).
+Par défaut les clefs se trouvent dans le dossier `C:\Users\<Utilisateur>\.ssh` (`/home/<Utilisateur>/.ssh` sous Linux). Le fichier `id_<algorithme>` contient la clef **privée** et le fichier `id_<algorithme>.pub` contient la clef **publique**. Il existe plusieurs algoritmes par exemple: RSA, ECDSA ou ED25519 (recommandé).
 
 ## OS (Système d'expoitation)
 
 Tout d'abord il faut "flasher" un os sur une carte micro SD. Pour cela on utilise un logiciel spécifique (ex: [Raspberry Pi Imager](https://www.raspberrypi.com/software/)).
-Cliquer sur `CHOISIR L'OS` puis sur `Raspberry Pi OS (other)` et enfin `Raspberry Pi OS Lite (64-bit)`.
-Sélectionner la carte SD en cliquant sur `CHOISIR LE STOCKAGE`.
-Afficher les options avancées `Ctrl+Shift+X`.
-Compléter les réglages de la page `Général` et modifier les valeurs par défaut si besoin.
-Dans la Page `Services` cocher la case `activer SSH` puis `Authentification via clef publique` et renseigner la clef publique.
-Cliquer sur `Enregistrer`
-Puis Cliquer sur `Suivant`.
-Mettre la carte SD dans le Raspberry Pi puis le démarrer.
-La connexion se fait en utilisant la commande `ssh utilisateur@hôte` (ex : `ssh pi@192.168.1.3`). Voir [cette page](../Autres/ip_discovery.md) pour l'obtenetion de l'ip du raspberry.
-Par défaut, l'identifiant est `pi` et le mot de passe `raspberry`
+1. Cliquer sur `CHOISIR L'OS` puis sur `Raspberry Pi OS (other)` et enfin `Raspberry Pi OS Lite (64-bit)`.
+2. Sélectionner la carte SD en cliquant sur `CHOISIR LE STOCKAGE`.
+3. Afficher les options avancées `Ctrl+Shift+X`.
+4. Compléter les réglages de la page `Général` et modifier les valeurs par défaut si besoin.
+5. Dans la Page `Services` cocher la case `activer SSH` puis `Authentification via clef publique` et renseigner votre clef publique.
+6. Cliquer sur `Enregistrer` puis sur `Suivant`.
+7. Mettre la carte SD dans le Raspberry Pi puis le démarrer.
+8. La connexion se fait en utilisant la commande `ssh utilisateur@hôte` (ex : `ssh pi@192.168.1.3`). Voir [cette page](../Autres/ip_discovery.md) pour l'obtenetion de l'ip du raspberry. Par défaut, l'identifiant est `pi` et le mot de passe `raspberry`

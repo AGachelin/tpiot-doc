@@ -1,5 +1,5 @@
 # Installer Docker
-## Linux
+## Linux (Ubuntu/Debian)
 Docker est un outil qui permet d'exécuter des applications dans des **conteneurs**, des environnements isolés et légers. Cela garantit que l'application fonctionne de la même manière sur n'importe quel ordinateur, sans conflits avec le système.
 1. Retirer les paquets créant des conflits:
 ```
@@ -30,7 +30,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 ## Windows
 ### WSL 
 
-WSL (_Windows Subsystem for Linux_) est une fonctionnalité de Windows qui permet d'exécuter un environnement Linux directement sur Windows, sans avoir besoin d'une machine virtuelle ou d'un dual boot.
+WSL (_Windows Subsystem for Linux_) est une fonctionnalité de Windows qui permet d'exécuter un environnement Linux directement sur Windows, sans avoir besoin d'une machine virtuelle ou d'un dual boot. Pour l'installer :
 ```
 wsl --install
 ```
