@@ -11,6 +11,14 @@ sudo apt install git
 
 ### Windows
 
+#### Avec winget
+
+Winget est un gestionnaire de paquets intégré à Windows.
+
+`winget install --id Git.Git -e --source winget` 
+
+#### Sans winget
+
 Rendez-vous sur la page officielle de téléchargement de Git pour Windows ([Télécharger Git pour Windows](https://git-scm.com/downloads/win)) puis télécharger le fichier correspondant à votre architecture.
 
 Une fois le téléchargement terminé, lancez le fichier .exe pour démarrer l'installation.
