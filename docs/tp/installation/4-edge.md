@@ -4,4 +4,10 @@ sidebar_position: 3
 
 
 # Edge
-1. Dans l'IDE Arduino, installer les extensions `DHT sensor library` par Adafruit, `ArduinoJson` par Benoit Blanchon et `PubSubClient` par Nick O'Leary.
+
+Dans l'IDE Arduino, installer les extensions suivantes: 
+- `DHT sensor library` par Adafruit
+- `ArduinoJson` par Benoit Blanchon
+- `PubSubClient` par Nick O'Leary
+- `OneWire` par Paul Stoffregen
+- `Dallas Temperature` par Miles Burton
