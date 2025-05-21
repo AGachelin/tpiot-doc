@@ -30,8 +30,8 @@ Le fichier contenant votre code doit commencer par :
 #include "conf.h"
 #include "edge.h"
 
-#define DHTPIN 21     // Digital pin connected to the DHT sensor
-#define DHTTYPE DHT22 // DHT 22 (AM2302)
+#define DHTPIN 21     // Pin connecté au pin data du Capteur
+#define DHTTYPE DHT22 // DHT 22 
 
 DHT dht(DHTPIN, DHTTYPE);
 WiFiClient espClient;
@@ -55,6 +55,7 @@ La fonction `setup` doit impérativement appeler les méthodes suivantes:
 
 La fonction loop doit appeler les méthodes:
 - `client.loop()` : Maintient la connexion MQTT ouverte et traite les messages.
+- `client.publish(topic, message)` : Publie un message sur le topic topic.
 
 ## Fonctions Fournies 
 
@@ -100,11 +101,11 @@ Les messages peuvent contenir un nombre arbitraire de champs
 ```
 Pour construire des objets JSON facilement, on utilise la librairie `<ArduinoJson.h>`.
 ```c title="Code utilisé pour l'exemple"
-JsonDocument jsonDocTemp;
-jsonDocTemp["schema"] = JsonObject();
-jsonDocTemp["schema"]["type"] = "struct";
-jsonDocTemp["schema"]["fields"] = JsonArray();
-JsonObject tempField = jsonDocTemp["schema"]["fields"].createNestedObject();
+JsonDocument jsonDocTemp; //création du JSON qui sera envoyé
+jsonDocTemp["schema"] = JsonObject(); //création de l'objet enfant schema
+jsonDocTemp["schema"]["type"] = "struct"; //création du champ "type": "struct"
+jsonDocTemp["schema"]["fields"] = JsonArray(); 
+JsonObject tempField = jsonDocTemp["schema"]["fields"].createNestedObject(); //cela permet d'accéder plus facilement à l'objet qui décrit le champ température
 tempField["type"] = "int";
 tempField["optional"] = false;
 tempField["field"] = "temperature";
@@ -116,10 +117,11 @@ jsonDocTemp["payload"] = JsonObject();
 jsonDocTemp["payload"]["temperature"] = t;
 jsonDocTemp["payload"]["timestamp"] = timestamp;
 
-char jsonBufferTemp[400];
-serializeJson(jsonDocTemp, jsonBufferTemp);
+char jsonBufferTemp[400]; //création d'une chaîne de caractères de 400 caractères (a augmenter si besoin) 
+serializeJson(jsonDocTemp, jsonBufferTemp); //jsonBufferTemp contient la chaîne de caractères à envoyer.
 ```
 
 Le nom du topic MQTT doit aussi être un objet JSON (ex : `{"temperature":"string"}`)
 
 Le stack cloud déployé contient un broker MQTT qui peut être utilisé pour tester l'envoi de messages.
+De plus des programmes pythons sont présent à la racine du projet pour permettre différents tests.

@@ -8,7 +8,7 @@ On va mettre en place sur le Raspberry Pi un conteneur docker contenant une inst
 
 ## Installation
 1. Préparer la machine qui va héberger le fog ([voir section détaillée ici](../installation/raspberry)).
-2. Copier le dossier fog sur le Raspberry Pi via ssh `scp <Chemin du dossier fog> <user raspberryPi>@<ip raspberryPi>:/home/<user raspberryPi>`
+2. Copier le dossier fog sur le Raspberry Pi via ssh `scp -r <Chemin du dossier fog> <user raspberryPi>@<ip raspberryPi>:/home/<user raspberryPi>`
 3. Se connecter au Raspberry Pi via ssh `ssh <user raspberryPi>@<ip raspberryPi>`
 4. Se placer dans le dossier fog (`cd ./fog`).
 5. Dans le fichier `docker-compose.yml`, modifier l'ip dans `KAFKA_MQTT_BOOTSTRAP_SERVERS` pour quelle corresponde à celle du cloud

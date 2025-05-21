@@ -17,7 +17,7 @@ L'objectif de ce TP est de simuler une architecture couramment utilisée pour l'
 1. La carte ESP32 collecte les données des capteurs et les envoie au Raspberry Pi via le protocole MQTT.
 2. Le Raspberry Pi transmet ces données au serveur Kafka dans le Cloud.
 3. Les données sont enregistrées dans une base de données pour être accessibles.
-4. Une interface web récupère les données depuis la base et les affiche sous forme de graphiques en temps réel.
+4. Une interface web récupère les données depuis la base de données et les affiche sous forme de graphiques en temps réel.
 
 Cette architecture reflète un scénario typique dans les systèmes IoT modernes, où les données sont traitées à différents niveaux pour optimiser les performances et la scalabilité.
 

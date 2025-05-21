@@ -19,13 +19,13 @@ Winget est un gestionnaire de paquets intégré à Windows.
 
 #### Sans winget
 
-Rendez-vous sur la page officielle de téléchargement de Git pour Windows ([Télécharger Git pour Windows](https://git-scm.com/downloads/win)) puis télécharger le fichier correspondant à votre architecture.
+Si votre ordinateur n'est pas compatible avec winget, rendez-vous sur la page officielle de téléchargement de Git pour Windows ([Télécharger Git pour Windows](https://git-scm.com/downloads/win)) puis télécharger le fichier correspondant à votre architecture.
 
 Une fois le téléchargement terminé, lancez le fichier .exe pour démarrer l'installation.
 
 Paramètres de PATH : Il est recommandé de choisir l'option par défaut qui vous permet d'ajouter Git au PATH, ce qui facilite l'utilisation de Git en ligne de commande.
 
-Finir l'installation : Cliquez sur "Install" pour finaliser l'installation.
+Cliquez sur "Install" pour finaliser l'installation.
 
 ## Vérification de l'installation 
 
