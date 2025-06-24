@@ -4,7 +4,9 @@ sidebar_position: 2
 
 # Capteur TDS
 
-Le capteur donne des valeurs en mV qu'il faut convertir avec les formules suivantes
+Pour exploiter ce capteur, il faut lire la tension de sortie et la convertir grâce aux formules suivantes.
+
+V est la tension et T la température de fonctionnement.
 
 Coefficient de compensation : $C_c = 1 + 0.2(T-25)$ \
 Voltage de compensation : $C_v = \frac{V}{C_c}$ \
