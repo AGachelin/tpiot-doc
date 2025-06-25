@@ -58,10 +58,11 @@ Pour le connecteur vers la base de données, accéder au site `http://localhost:
 }
 ```
 ## Component Twig
-Afin d'afficher le graphique des données en temps réel, il faut créer un composant twig (Twig est un moteur de templates pour PHP).
-Créer une copie du fichier `website\src\Twig\Components\GenericChart.php` et la nommer, attention le nom de la classe doit être identique au nom du fichier (attention à la casse).
-Pour modifier l'entité à afficher modifier l'entité passée en argument de la méthode `getRepository()` (ligne 30) (par défaut il s'agit de l'entité `Température`). Attention à bien importer l'entité, par exemple: `use App\Entity\Temperature;`.
-Pour modifier la propriété de l'entité à afficher, modifier ligne 33 le getter appelé (par défaut `getTemperature()`).
-Il est possible d'afficher plusieurs courbes sur le même graphique (voir `website\src\Twig\Components\RealTimeChartDHT.php`)
-Il faut aussi créer une copie du fichier `website\templates\components\GenericChart.html.twig` et la nommer avec le même nom que le fichier .php créé précédemment.
-Enfin, il faut intégrer le composant dans une page en utilisant `{{ component('NOM DU COMPOSANT') }}`
+Afin d'afficher le graphique des données en temps réel, il faut créer un composant twig (Twig est un moteur de templates pour PHP). \
+Créer une copie du fichier `website\src\Twig\Components\GenericChart.php` et la nommer, attention le nom de la classe doit être identique au nom du fichier (attention à la casse). \
+Pour modifier l'entité à afficher modifier l'entité passée en argument de la méthode `getRepository()` (ligne 30) (par défaut il s'agit de l'entité `Température`). Attention à bien importer l'entité, par exemple: `use App\Entity\Temperature;`. \
+Pour modifier la propriété de l'entité à afficher, modifier ligne 33 le getter appelé (par défaut `getTemperature()`). \
+Il est possible d'afficher plusieurs courbes sur le même graphique (voir `website\src\Twig\Components\RealTimeChartDHT.php`). \
+Il faut aussi créer une copie du fichier `website\templates\components\GenericChart.html.twig` et la nommer avec le même nom que le fichier .php créé précédemment. \
+Enfin, il faut intégrer le composant dans une page en utilisant `{{ component('NOM DU COMPOSANT') }}`. Les différentes pages se trouvent dans le dossier `website/src/templates`. \
+Une fois le code modifier ne pas oublier de mettre à jour le container `docker compose up -d --build`
