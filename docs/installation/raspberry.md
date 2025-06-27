@@ -35,10 +35,14 @@ Le fichier `id_<algorithme>` contient la clef **privée** et le fichier `id_<alg
 
 Tout d'abord il faut "flasher" un os sur une carte micro SD. Pour cela on utilise un logiciel spécifique (ex: [Raspberry Pi Imager](https://www.raspberrypi.com/software/)).
 1. Cliquer sur `CHOISIR L'OS` puis sur `Raspberry Pi OS (other)` et enfin `Raspberry Pi OS Lite (64-bit)`.
+![choisir l'option Raspberry Pi OS (other)](../assets/raspi-os-other.png)
+![choisir l'option Raspberry Pi OS Lite (64-bit)](../assets/raspi-os-64-light.png)
 2. Sélectionner la carte SD en cliquant sur `CHOISIR LE STOCKAGE`.
-3. Afficher les options avancées `Ctrl+Shift+X`.
+3. Afficher les options avancées `Ctrl+Shift+X`. 
 4. Compléter les réglages de la page `Général` et modifier les valeurs par défaut si besoin.
-5. Dans la Page `Services` cocher la case `activer SSH` puis `Authentification via clef publique` et renseigner votre clef publique.
+![paramètres généraux](../assets/custom-os-general.png)
+5. Dans la Page `Services` cocher la case `activer SSH` puis `Authentification via clef publique` et renseigner votre clef publique.\
+![paramètres de services](../assets/custom-os-services.png)
 6. Cliquer sur `Enregistrer` puis sur `Suivant`.
 7. Mettre la carte SD dans le Raspberry Pi puis le démarrer.
-8. La connexion se fait en utilisant la commande `ssh utilisateur@hôte` (ex : `ssh pi@192.168.1.3`). Voir [cette page](../Autres/ip_discovery.md) pour l'obtenetion de l'ip du raspberry. Par défaut, l'identifiant est `pi` et le mot de passe `raspberry`
+8. La connexion se fait en utilisant la commande `ssh utilisateur@hôte` (ex : `ssh pi@192.168.1.3`). Voir [cette page](../troubleshooting/ip_discovery.md) pour l'obtenetion de l'ip du raspberry. Par défaut, l'identifiant est `pi` et le mot de passe `raspberry`

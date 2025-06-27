@@ -21,11 +21,15 @@ $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
 sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
 ```
-Si cette étape échoue, se référer à [cette page](../Autres/time.md).
+Si cette étape échoue, se référer à [cette page](../troubleshooting/time.md).
 
 3. Installer Docker
 ```
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+4. Il faut ensuite rejoindre le groupe des utilisateurs autorisés à utiliser docker
+```
+sudo usermod -aG docker $USER
 ```
 ## Windows
 ### WSL 
