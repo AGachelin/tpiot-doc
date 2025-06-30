@@ -13,6 +13,10 @@ L'objectif de ce TP est de simuler une architecture couramment utilisée pour l'
 - **Fog (Raspberry Pi)** : Le Raspberry Pi agit comme une passerelle Fog. Il héberge un proxy MQTT qui reçoit les données de l'ESP32 et les transmet à un serveur Kafka hébergé dans le Cloud. Le Fog permet de réduire la charge sur le Cloud en effectuant un prétraitement ou un filtrage des données si nécessaire.
 - **Cloud (Ordinateur personnel)** : Le Cloud est hébergé sur un ordinateur personnel. Il exécute un serveur Kafka pour centraliser les données reçues. Ces données sont ensuite stockées dans une base de données, prêtes à être exploitées par une interface web. Le transfert est assuré par une instance Kafka Connect. Les données reçues par le broker sont comparées à un shéma, pour assurer leur compatibilité. L’ensemble des composants de l’écosystème Kafka (hors base de données) est géré à travers une interface web appelée Control Center.
 
+### Structure de la base de données
+![Schéma de la base de données](./assets/structure_db.drawio.png) \
+**Les topics MQTT et Kafka ont le même nom que la table correspondante dans la base de données.**
+
 ### Fonctionnement global
 1. La carte ESP32 collecte les données des capteurs et les envoie au Raspberry Pi via le protocole MQTT.
 2. Le Raspberry Pi transmet ces données au serveur Kafka dans le Cloud.

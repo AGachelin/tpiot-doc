@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # Ajout de capteurs
 Dans ce TP, chaque donnée (humidité et température) a son propre topic mqtt et kafka. Pour ajouter un capteur, il n'est pas nécessaire de créer les topics MQTT et Kafka car leur création est automatique. Cependant, il est nécessaire de paramétrer les interfaces qui connectent MQTT, Kafka et la base de données (MQTT-Proxy et Connect). Il faut aussi s'assurer que l'interface web puissse accéder aux données.
-## Entité Symfony
+## Entité Symfony (Cette partie est déjà faite pour les capteurs DHT 22, TDS et DS18B20)
 Il faut faire en sorte que l'interface web puisse accéder aux données, pour cela il faut créer une entité dans le code symfony. Il existe pour cela une commande (à effectuer dans le dossier `website`) `php bin/console make:entity` (il faut pour l'exécuter avoir installé php). La commande demande le nom de l'entité (ex: `Temperature`) puis le nom des propriétés suivies de leur type (dans notre exemple `temperature` de type `float` puis `timestamp` de type `bigint`). Enfin il faut exécuter la commande `php bin/console make:migration`.
 Il faut ensuite modifier le fichier migration créé. Dans la méthode publique `up` il faut supprimer les lignes qui retirent la valeur par défaut des entitées déjà crées (notemment `Temperature` et `Humidity`). Pour cela il faut retirer les instructions :
 ```php
@@ -57,7 +57,7 @@ Pour le connecteur vers la base de données, accéder au site `http://localhost:
   }
 }
 ```
-## Component Twig
+## Component Twig (Cette partie est déjà faite pour les capteurs DHT 22, TDS et DS18B20)
 Afin d'afficher le graphique des données en temps réel, il faut créer un composant twig (Twig est un moteur de templates pour PHP). \
 Créer une copie du fichier `website\src\Twig\Components\GenericChart.php` et la nommer, attention le nom de la classe doit être identique au nom du fichier (attention à la casse). \
 Pour modifier l'entité à afficher modifier l'entité passée en argument de la méthode `getRepository()` (ligne 30) (par défaut il s'agit de l'entité `Température`). Attention à bien importer l'entité, par exemple: `use App\Entity\Temperature;`. \
