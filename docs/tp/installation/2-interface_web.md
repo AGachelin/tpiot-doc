@@ -12,7 +12,7 @@ sidebar_position: 2
     3. Cliquer sur le premier cluster (connect-default)
     4. Cliquer sur "Add connector", puis sur "Upload connector config file" et choisir le fichier `connector_JdbcSinkConnectorConnector_0_config.json` qui est dans le dossier `cloud/connectors`.
 
-L'interface web devrait être accessible à l'adresse [http://localhost:8000](http://locahost:8000).
+L'interface web devrait être accessible à l'adresse [http://localhost:8000](http://localhost:8000).
 
 L'interface devrait ressemebler à ceci : 
 ![Capture d'écran du dashboard](../../assets/dashboard.png)

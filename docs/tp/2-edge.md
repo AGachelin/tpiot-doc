@@ -7,16 +7,19 @@ sidebar_position: 2
 Pour que le programme de l'ESP 32 fonctionne correctement, il faut créer un dossier qui contiendra le code. Ce dossier doit avoir la structure suivante:
 ```c
 fog
-└──myFile
+└──myCode
     ├──conf.h //Fichier contenant la configuration réseau
     ├──credentials.h //Fichier contenant les identifiants Wi-Fi
     ├──edge.cpp //Fichiers contnant les fonctions fournies 
     ├──edge.h
-    └──myCode.ino //Votre Code
+    └──myCode.ino //Votre Code 
 ```
 Le fichier `credentials.h` doit contenir le SSID et le mot de passe du réseau Wi-Fi.
 Le fichier `conf.h` doit contenir l'ip du serveur vers lequel on va publier.
-Les fichiers `edge.h` et `edge.cpp` contiennent des fonction utiles.
+Les fichiers `edge.h` et `edge.cpp` contiennent les fonctions fournies.
+Le fichier `myCode.ino` peut avoir un nom arbitraire mais imérativement le même que celui de son dossier parent.
+
+La structure est partiellement fournie dans le dossier `./edge/example`.
 
 Le fichier contenant votre code doit commencer par : 
 ```c
@@ -121,7 +124,7 @@ char jsonBufferTemp[400]; //création d'une chaîne de caractères de 400 caract
 serializeJson(jsonDocTemp, jsonBufferTemp); //jsonBufferTemp contient la chaîne de caractères à envoyer.
 ```
 
-Le nom du topic MQTT doit aussi être un objet JSON (ex : `{"temperature":"string"}`)
+**Le nom du topic MQTT doit aussi être un objet JSON (ex : `{"temperature":"string"}`)**
 
 Le stack cloud déployé contient un broker MQTT qui peut être utilisé pour tester l'envoi de messages.
 De plus des programmes pythons sont présent à la racine du projet pour permettre différents tests.

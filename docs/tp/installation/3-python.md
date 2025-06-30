@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Programmes de test
+# Programmes de test (Optionel)
 Installation des librairies requises pour les programmes de test.
 
 1. Se placer à la racine du projet.

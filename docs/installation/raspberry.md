@@ -25,9 +25,9 @@ https://learn.microsoft.com/fr-fr/windows-server/administration/openssh/openssh_
 
 ### Générer une paire de clefs
 
-La paire de clés en cryptographie asymétrique (comme SSH) fonctionne comme un cadenas et une clé : la clé publique est comme un cadenas que tout le monde peut fermer (chiffrer un message), mais seule la clé privée, gardée secrète, peut l’ouvrir (déchiffrer le message).
+La paire de clés en cryptographie asymétrique (comme SSH) fonctionne comme un cadenas et une clé. La clé publique est comme un cadenas que tout le monde peut fermer (chiffrer un message), mais seule la clé privée, gardée secrète, peut l’ouvrir (déchiffrer le message).
 
-Générer les clefs `ssh-keygen -t <algorithme>`. En cas de problème, se référer à cette [page](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_keymanagement).
+Générer les clefs `ssh-keygen -t <algorithme>`. En cas de problème, se référer à [cette page](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_keymanagement).
 Par défaut les clefs se trouvent dans le dossier `/home/<Utilisateur>/.ssh` sous Linux ou `C:\Users\<Utilisateur>\.ssh` sous Windows. \
 Le fichier `id_<algorithme>` contient la clef **privée** et le fichier `id_<algorithme>.pub` contient la clef **publique**. Il existe plusieurs algoritmes par exemple: RSA, ECDSA ou ED25519 (recommandé).
 

@@ -10,7 +10,7 @@ L'objectif de ce TP est de simuler une architecture couramment utilisée pour l'
 ### Description de l'architecture
 ![Schéma de l'architecture](./assets/edgefogcloud.drawio.png)
 - **Edge (Carte ESP32)** : La carte ESP32 joue le rôle de l'Edge. Elle est responsable de la collecte des données depuis les capteurs connectés. Ces données sont ensuite transmises via le protocole MQTT au niveau Fog.
-- **Fog (Raspberry Pi)** : Le Raspberry Pi agit comme une passerelle Fog. Il héberge un proxy MQTT qui reçoit les données de l'ESP32 et les transmet à un serveur Kafka hébergé dans le Cloud. Le Fog permet de réduire la charge sur le Cloud en effectuant un prétraitement ou un filtrage des données si nécessaire.
+- **Fog (Raspberry Pi)** : Le Raspberry Pi agit comme une passerelle Fog. Il héberge un proxy MQTT qui reçoit les données de l'ESP32 et les transmet à un serveur Kafka hébergé dans le Cloud. Dans le cas général, le Fog permet de réduire la charge sur le Cloud en effectuant un prétraitement ou un filtrage des données si nécessaire.
 - **Cloud (Ordinateur personnel)** : Le Cloud est hébergé sur un ordinateur personnel. Il exécute un serveur Kafka pour centraliser les données reçues. Ces données sont ensuite stockées dans une base de données, prêtes à être exploitées par une interface web. Le transfert est assuré par une instance Kafka Connect. Les données reçues par le broker sont comparées à un shéma, pour assurer leur compatibilité. L’ensemble des composants de l’écosystème Kafka (hors base de données) est géré à travers une interface web appelée Control Center.
 
 ### Structure de la base de données
@@ -23,7 +23,7 @@ L'objectif de ce TP est de simuler une architecture couramment utilisée pour l'
 3. Les données sont enregistrées dans une base de données pour être accessibles.
 4. Une interface web récupère les données depuis la base de données et les affiche sous forme de graphiques en temps réel.
 
-Cette architecture reflète un scénario typique dans les systèmes IoT modernes, où les données sont traitées à différents niveaux pour optimiser les performances et la scalabilité.
+Cette architecture reflète un scénario typique dans les systèmes IoT modernes, où les données sont traitées à différents niveaux pour optimiser les performances et l'extensibilité (scalability).
 
 
 ## Recommandations
